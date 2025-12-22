@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行业资讯 | 亚洲咖啡协会 ACA</title>
+    <style>
+        /* --- 基础样式复用 --- */
+        :root {
+            --primary-color: #4b3621;
+            --accent-color: #c29b61;
+            --bg-color: #f9f7f2;
+            --text-color: #333;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        a:hover { color: var(--accent-color); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* 导航栏 */
+        header { background-color: var(--white); box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        .nav-links { display: flex; gap: 2rem; }
+
+        /* --- 资讯页特有样式 --- */
+
+        /* 顶部 Banner */
+        .news-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        /* 页面主要布局：左侧内容 + 右侧边栏 */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start; /* 顶部对齐 */
+        }
+
+        /* 左侧文章列表 */
+        .main-content {
+            flex: 3; /* 占据 3/4 宽度 */
+        }
+
+        .news-item {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            height: 220px;
+        }
+
+        .news-img {
+            flex: 1;
+            background-color: #ccc;
+            /* background-image: url('...'); */
+            min-width: 250px;
+        }
+
+        .news-info {
+            flex: 2;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .news-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .category-tag {
+            color: var(--accent-color);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .news-title {
+            font-size: 1.4rem;
+            margin: 0 0 1rem 0;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+
+        .news-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 限制显示2行 */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* 右侧侧边栏 */
+        .sidebar {
+            flex: 1; /* 占据 1/4 宽度 */
+            position: sticky;
+            top: 100px; /* 滚动时吸顶 */
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-list li {
+            border-bottom: 1px solid #eee;
+            padding: 0.8rem 0;
+        }
+        .category-list li:last-child { border: none; }
+        .category-list span { float: right; color: #999; font-size: 0.8rem; }
+
+        /* 分页器 */
+        .pagination {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            border: 1px solid #ddd;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer { background-color: var(--primary-color); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
+
+        /* 响应式：手机端变成单列 */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .news-item { flex-direction: column; height: auto; }
+            .news-img { height: 200px; }
+            .sidebar { position: static; width: 100%; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">亚洲咖啡协会 ACA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about_us.html">关于我们</a></li>
+                <li><a href="news.html" style="color: var(--accent-color);">行业资讯</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="news-header">
+        <h1>行业资讯中心</h1>
+        <p>News & Insights</p>
+    </div>
+
+    <div class="container">
+        <main class="main-content">
+            
+            <article class="news-item">
+                <div class="news-img" style="background-color: #ddd;"></div> <div class="news-info">
+                    <div class="news-meta">
+                        <span class="category-tag">市场报告</span>
+                        <span>2023-12-22</span>
+                    </div>
+                    <a href="#"><h2 class="news-title">2024 Q1 亚洲咖啡生豆价格指数分析</h2></a>
+                    <p class="news-excerpt">受气候变化影响，越南与印尼产区的罗布斯塔豆价格持续波动。本报告将详细分析库存水平与出口数据...</p>
+                    <a href="#" style="font-weight: bold; font-size: 0.9rem;">阅读详情 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-img" style="background-color: #bbb;"></div>
+                <div class="news-info">
+                    <div class="news-meta">
+                        <span class="category-tag">协会动态</span>
+                        <span>2023-12-18</span>
+                    </div>
+                    <a href="#"><h2 class="news-title">亚洲咖啡协会(ACA)与国际咖啡组织(ICO)签署战略合作备忘录</h2></a>
+                    <p class="news-excerpt">旨在共同推动亚洲地区的可持续种植标准，并为小农户提供更多技术与资金支持...</p>
+                    <a href="#" style="font-weight: bold; font-size: 0.9rem;">阅读详情 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="news-item">
+                <div class="news-img" style="background-color: #999;"></div>
+                <div class="news-info">
+                    <div class="news-meta">
+                        <span class="category-tag">种植技术</span>
+                        <span>2023-12-10</span>
+                    </div>
+                    <a href="#"><h2 class="news-title">云南产区抗锈病新品种试种成功</h2></a>
+                    <p class="news-excerpt">经过农科院三年的实验，这一新品种不仅抗病性强，且杯测风味达到了精品级标准...</p>
+                    <a href="#" style="font-weight: bold; font-size: 0.9rem;">阅读详情 &rarr;</a>
+                </div>
+            </article>
+
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">下一页</button>
+            </div>
+        </main>

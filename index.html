@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亚洲咖啡协会 | Asian Coffee Association</title>
+    <style>
+        /* --- 基础样式 --- */
+        :root {
+            --primary-color: #4b3621; /* 深咖啡色 */
+            --accent-color: #c29b61;  /* 金棕色 */
+            --bg-color: #f9f7f2;      /* 米白色背景 */
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; padding: 0; }
+
+        /* --- 导航栏 --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero 区域 --- */
+        .hero {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+            /* 这里可以用背景图: background-image: url('coffee-farm.jpg'); */
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* --- 文章列表区域 (核心需求) --- */
+        .articles-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .article-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            height: 200px;
+            background-color: #ddd; /* 占位符颜色 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+            color: var(--primary-color);
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">亚洲咖啡协会 ACA</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about_us.html">关于我们</a></li>
+                <li><a href="news.html" style="color: var(--accent-color);">行业资讯</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>连接亚洲咖啡的力量</h1>
+        <p>致力于推动亚洲咖啡种植、加工与贸易的可持续发展</p>
+    </section>
+
+    <section class="articles-section">
+        <h2 class="section-title">最新行业洞察</h2>
+        
+        <div class="article-grid">
+            <article class="article-card">
+                <div class="card-image">文章配图 (如: 云南产区)</div>
+                <div class="card-content">
+                    <span class="card-date">2023-12-22</span>
+                    <h3 class="card-title">2024年亚洲咖啡消费趋势报告</h3>
+                    <p class="card-excerpt">随着精品咖啡文化的普及，亚洲市场特别是中国和东南亚地区的消费习惯正在发生巨变...</p>
+                    <a href="report_a.html" class="read-more">阅读全文 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-image">文章配图 (如: 咖啡豆处理)</div>
+                <div class="card-content">
+                    <span class="card-date">2023-12-20</span>
+                    <h3 class="card-title">探访越南：罗布斯塔的品质革命</h3>
+                    <p class="card-excerpt">传统的速溶咖啡原料正在向精品罗布斯塔（Fine Robusta）转型，这给农户带来了新的机遇...</p>
+                    <a href="report_a.html" class="read-more">阅读全文 &rarr;</a>
+                </div>
+            </article>
+
+            <article class="article-card">
+                <div class="card-image">文章配图 (如: 杯测现场)</div>
+                <div class="card-content">
+                    <span class="card-date">2023-12-15</span>
+                    <h3 class="card-title">ACA 年度杯测大赛报名启动</h3>
+                    <p class="card-excerpt">汇聚全亚洲最优秀的烘焙师与感官评审，今年的大赛将在上海举办...</p>
+                    <a href="report_a.html" class="read-more">阅读全文 &rarr;</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 亚洲咖啡协会 (Asian Coffee Association). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
